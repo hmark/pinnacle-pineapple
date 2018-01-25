@@ -22,6 +22,13 @@ class PinnacleClient extends BaseApiClient
         return $this->get('odds', 'v1', array_merge($default, $options));
     }
 
+    public function parlayOdds($options = [])
+    {
+        $default = $this->useSince(['oddsFormat' => 'DECIMAL']);
+
+        return $this->get('odds/parlay', 'v1', array_merge($default, $options));
+    }
+
     public function specialOdds($options = [])
     {
         $default = $this->useSince(['oddsFormat' => 'DECIMAL']);
