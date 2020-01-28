@@ -57,6 +57,13 @@ class PinnacleClient extends BaseApiClient
         return $this->get('fixtures/settled', 'v1', array_merge($default, $options));
     }
 
+    public function settledSpecialFixtures($options = [])
+    {
+        $default = $this->useSince();
+
+        return $this->get('fixtures/special/settled', 'v1', array_merge($default, $options));
+    }
+
     public function leagues($options = [])
     {
         $data = $this->get('leagues', 'v2', $options);
@@ -77,7 +84,7 @@ class PinnacleClient extends BaseApiClient
 
         return $data['sports'];
     }
-    
+
     private function useSince($default = [])
     {
         if (!is_null($this->since)) {
